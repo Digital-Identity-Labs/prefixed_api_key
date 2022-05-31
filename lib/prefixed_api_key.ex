@@ -28,9 +28,6 @@ defmodule PrefixedApiKey do
   end
 
   def parse(api_key = %PrefixedApiKey{}) do
-
-    Apex.ap api_key
-
     {:ok, api_key}
   end
 
@@ -52,8 +49,7 @@ defmodule PrefixedApiKey do
   end
 
   def valid?(api_key, hash) do
-    with {:ok, key} <- parse(api_key)
-      do
+    with {:ok, key} <- parse(api_key) do
       key.hash == hash
     else
       _ -> false
