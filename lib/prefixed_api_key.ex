@@ -158,7 +158,7 @@ defmodule PrefixedApiKey do
 
   @doc """
   Compares an Prefixed API Key string (or struct) to a hash and short token that you have previously stored, for verification of the key.
-    
+
   ## Example
 
       iex> PrefixedApiKey.verify?(
