@@ -4,7 +4,7 @@
 [Prefixed API Key](https://github.com/seamapi/prefixed-api-key) library. 
 It creates and verifies simple, random authentication tokens that have two useful prefix parts.
 
-This version is slightly different (it has a smaller set of functions and uses a slightly bigger character set) 
+This version is a little different (it has a smaller set of functions and uses a slightly bigger character set) 
 but appears to be compatible with the original.
 
 ## Installation
@@ -87,8 +87,8 @@ Prefix             Short Token       Long Token
     #        prefix: "myapp",
     #        short_token: "ZLXZ3PYn"
     #      }}
-    
-    key.verify?("myapp_ZLXZ3PYn_E34CUQSRtlmf0CMLsKFjMOf7", "d5264a8fef50459c35306c35396c446cf88f8755c06ff70c341eb3fbd606ca44")
+
+    PrefixedApiKey.verify?("myapp_ZLXZ3PYn_E34CUQSRtlmf0CMLsKFjMOf7", "d5264a8fef50459c35306c35396c446cf88f8755c06ff70c341eb3fbd606ca44")
     # => true
 
 ```
