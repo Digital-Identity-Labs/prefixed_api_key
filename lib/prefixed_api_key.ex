@@ -135,6 +135,17 @@ defmodule PrefixedApiKey do
     end
   end
 
+  @doc """
+  Compares an Prefixed API Key string (or struct) to a hash you have previously stored, for verification of the key.
+
+  ## Example
+
+      iex> PrefixedApiKey.verify?(
+      ...>        "mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG",
+      ...>        "d70d981d87b449c107327c2a2afbf00d4b58070d6ba571aac35d7ea3e7c79f37")
+      true
+
+  """
   @spec verify?(api_key :: binary | PrefixedApiKey.t(), hash :: binary, short :: binary) :: true | false
   def verify?(api_key, hash, short) do
     with {:ok, key} <- parse(api_key)
@@ -146,16 +157,10 @@ defmodule PrefixedApiKey do
   end
 
   @doc """
-  Compares an Prefixed API Key string (or struct) to a hash you have previously stored, for verification of the key.
-
-  You can optionally pass a previously stored short token too, for an additional check.
-
+  Compares an Prefixed API Key string (or struct) to a hash and short token that you have previously stored, for verification of the key.
+    
   ## Example
 
-      iex> PrefixedApiKey.verify?(
-      ...>        "mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG",
-      ...>        "d70d981d87b449c107327c2a2afbf00d4b58070d6ba571aac35d7ea3e7c79f37")
-      true
       iex> PrefixedApiKey.verify?(
       ...>   "mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG",
       ...>   "d70d981d87b449c107327c2a2afbf00d4b58070d6ba571aac35d7ea3e7c79f37",
