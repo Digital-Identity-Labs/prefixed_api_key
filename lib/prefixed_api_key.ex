@@ -5,7 +5,7 @@ defmodule PrefixedApiKey do
   alias PrefixedApiKey.ShortToken
 
   @api_key_structure  ~r/^(?<prefix>[a-zA-Z0-9]+)_(?<short>[a-zA-Z0-9]{8})_(?<long>[a-zA-Z0-9]{24})$/
-  @prefix_format ~r/[a-zA-Z0-9]{1,32}/
+  @prefix_format ~r/^[a-zA-Z0-9]{1,32}$/
 
   @enforce_keys [:prefix, :short_token, :long_token, :hash, :api_key]
 
@@ -39,7 +39,7 @@ defmodule PrefixedApiKey do
     end
   end
 
-  def valid?(api_key, hash, short) do
+  def verify?(api_key, hash, short) do
     with {:ok, key} <- parse(api_key)
       do
       key.short_token == short && key.hash == hash
@@ -48,7 +48,7 @@ defmodule PrefixedApiKey do
     end
   end
 
-  def valid?(api_key, hash) do
+  def verify?(api_key, hash) do
     with {:ok, key} <- parse(api_key) do
       key.hash == hash
     else
@@ -88,9 +88,3 @@ defmodule PrefixedApiKey do
   end
 
 end
-
-
-#   shortToken: 'BRTRKFsL',
-#longToken: '51FwqftsmMDHHbJAMEXXHCgG',
-#longTokenHash: 'd70d981d87b449c107327c2a2afbf00d4b58070d6ba571aac35d7ea3e7c79f37',
-#               token: 'mycompany_BRTRKFsL_51FwqftsmMDHHbJAMEXXHCgG'
