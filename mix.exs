@@ -5,7 +5,7 @@ defmodule PrefixedApiKey.MixProject do
     [
       app: :prefixed_api_key,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -29,8 +29,6 @@ defmodule PrefixedApiKey.MixProject do
       {:ex_doc, "~> 0.23.0", only: :dev, runtime: false},
       {:earmark, "~> 1.3", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false},
-      {:ex_unit_assert_match, "~> 0.3.0", only: :test},
-      {:ex_matchers, "~> 0.1.3", only: :test},
       {:doctor, "~> 0.17.0", only: :dev, runtime: false}
     ]
   end
