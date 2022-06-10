@@ -15,7 +15,7 @@ dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:prefixed_api_key, "~> 0.1.0"}
+    {:prefixed_api_key, "~> 0.2.0"}
   ]
 end
 ```
@@ -108,6 +108,7 @@ or submit a [pull request](https://github.com/Digital-Identity-Labs/prefixed_api
 
 * The original [Prefixed API Key](https://github.com/seamapi/prefixed-api-key)
 * [Discussion on the original library at Hacker News](https://news.ycombinator.com/item?id=31333933#31336542)
+* secure_compare function was borrowed from [Plug Crypto](https://github.com/elixir-plug/plug_crypto)
 
 ## Copyright and License
 
