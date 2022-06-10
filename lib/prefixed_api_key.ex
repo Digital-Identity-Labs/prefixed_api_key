@@ -62,6 +62,8 @@ defmodule PrefixedApiKey do
   alias PrefixedApiKey.LongToken
   alias PrefixedApiKey.ShortToken
 
+  import Bitwise
+
   @api_key_structure  ~r/^(?<prefix>[a-zA-Z0-9]+)_(?<short>[a-zA-Z0-9]{8})_(?<long>[a-zA-Z0-9]{24})$/
   @prefix_format ~r/^[a-zA-Z0-9]{1,32}$/
 
@@ -171,7 +173,7 @@ defmodule PrefixedApiKey do
   @spec verify?(api_key :: binary | PrefixedApiKey.t(), hash :: binary) :: true | false
   def verify?(api_key, hash) do
     with {:ok, key} <- parse(api_key) do
-      key.hash == hash
+      secure_compare(key.hash, hash)
     else
       _ -> false
     end
@@ -206,6 +208,23 @@ defmodule PrefixedApiKey do
       api_key: api_key_string(prefix, short, long)
     }
     {:ok, pak_struct}
+  end
+
+
+
+  ## http://codahale.com/a-lesson-in-timing-attacks/
+  @spec secure_compare(binary(), binary()) :: boolean()
+  defp secure_compare(left, right) when is_binary(left) and is_binary(right) do
+    byte_size(left) == byte_size(right) and secure_compare(left, right, 0)
+  end
+
+  defp secure_compare(<<x, left::binary>>, <<y, right::binary>>, acc) do
+    xorred = bxor(x, y)
+    secure_compare(left, right, acc ||| xorred)
+  end
+
+  defp secure_compare(<<>>, <<>>, acc) do
+    acc === 0
   end
 
 end
