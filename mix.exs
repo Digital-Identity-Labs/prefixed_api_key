@@ -4,7 +4,7 @@ defmodule PrefixedApiKey.MixProject do
   def project do
     [
       app: :prefixed_api_key,
-      version: "0.2.0",
+      version: "0.2.1",
       elixir: "~> 1.11",
       description: "Elixir module for generating a simple Prefixed API Key",
       package: package(),
@@ -40,10 +40,10 @@ defmodule PrefixedApiKey.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:puid, "~> 1.1"},
+      {:puid, "~> 2.2"},
       {:apex, "~> 1.2", only: [:dev, :test], runtime: false},
-      {:credo, "~> 1.5.0", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.13.0", only: :test},
+      {:credo, "~> 1.7.0", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.14 and >= 0.14.4", only: [:dev, :test]},
       {:benchee, "~> 1.0.1", only: [:dev, :test]},
       {:ex_doc, "~> 0.23.0", only: :dev, runtime: false},
       {:earmark, "~> 1.3", only: :dev, runtime: false},
