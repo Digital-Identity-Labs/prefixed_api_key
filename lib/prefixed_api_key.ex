@@ -152,7 +152,7 @@ defmodule PrefixedApiKey do
   def verify?(api_key, hash, short) do
     with {:ok, key} <- parse(api_key)
       do
-      key.short_token == short && key.hash == hash
+      key.short_token == short && secure_compare(key.hash, hash)
     else
       _ -> false
     end
