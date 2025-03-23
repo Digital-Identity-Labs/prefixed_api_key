@@ -104,14 +104,22 @@ Full API documentation can be found at
 You can request new features by creating an [issue](https://github.com/Digital-Identity-Labs/prefixed_api_key/issues),
 or submit a [pull request](https://github.com/Digital-Identity-Labs/prefixed_api_key/pulls) with your contribution.
 
+Thanks to @stillwondering and @Rodeoclash for patches and suggestions!
+
 ## References
 
 * The original [Prefixed API Key](https://github.com/seamapi/prefixed-api-key)
 * [Discussion on the original library at Hacker News](https://news.ycombinator.com/item?id=31333933#31336542)
 * secure_compare function was borrowed from [Plug Crypto](https://github.com/elixir-plug/plug_crypto)
 
+## Alternatives
+
+* [Context ID](https://hex.pm/packages/context_id)
+* [Pika](https://github.com/ArtieFuzzz/pika)
+* [Prefixed ID](https://github.com/oliver-ni/prefixed_id)
+
 ## Copyright and License
 
-Copyright (c) 2022 Digital Identity Ltd, UK
+Copyright (c) 2022, 2025 Digital Identity Ltd, UK
 
 PrefixedAPIKey is MIT licensed.
