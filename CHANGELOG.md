@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 A patch update to fix a missing secure compare in `verify?/3`
 
 ### Fixes
-- Secure compare is now also used for prefix comparison in `verify?/3`
+- Secure compare is now also used for comparison in `verify?/3` - thanks to @stillwondering
 
 ### Changed
 - Development dependencies have been updated slightly
